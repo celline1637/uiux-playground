@@ -1,28 +1,29 @@
-import { Navigate, useRoutes } from "react-router-dom";
-import { patternsRoutes } from "./patterns";
-import { Suspense, lazy } from "react";
-import { paths } from "../../routes/paths";
-import Page404 from "@/pages/error/404";
-import { MainLayout } from "@/components/layout";
+import { MainLayout } from "@/components/layout"
+import Page404 from "@/pages/error/404"
+import { lazy } from "react"
+import { Navigate, Outlet, useRoutes } from "react-router-dom"
+import { paths } from "../../routes/paths"
+import { componentsRoutes } from "./components"
+import { patternsRoutes } from "./patterns"
 
 // ----------------------------------------------------------------------
 
-const HomePage = lazy(() => import("@/pages/home"));
+const HomePage = lazy(() => import("@/pages/home"))
 
 // ----------------------------------------------------------------------
 
 export function Router() {
   return useRoutes([
     {
-      element: <MainLayout />,
+      element: (
+        <MainLayout>
+          <Outlet />
+        </MainLayout>
+      ),
       children: [
         {
           path: "/",
-          element: (
-            <Suspense fallback={<>loading...</>}>
-              <HomePage />
-            </Suspense>
-          ),
+          element: <HomePage />,
         },
         {
           path: paths.notFound,
@@ -31,9 +32,11 @@ export function Router() {
 
         ...patternsRoutes,
 
+        ...componentsRoutes,
+
         // No match
         { path: "*", element: <Navigate to="/404" replace /> },
       ],
     },
-  ]);
+  ])
 }

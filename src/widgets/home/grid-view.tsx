@@ -7,6 +7,12 @@ import { Link } from "react-router-dom"
 
 const links = [
   {
+    name: "LLM Chat",
+    description: "LLM 채팅 UI (가짜 응답 목킹)",
+    path: paths.patterns.llmChat,
+    icon: "solar:chat-round-dots-bold",
+  },
+  {
     name: "Active Feed Autoplay",
     description: "스크롤 기반 자동 재생 피드",
     path: paths.patterns.activeFeedAutoplay,

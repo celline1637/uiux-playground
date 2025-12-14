@@ -34,6 +34,11 @@ export const navigation = [
         path: "/patterns/contenteditable-input",
         icon: "solar:pen-bold",
       },
+      {
+        title: "LLM Chat",
+        path: "/patterns/llm-chat",
+        icon: "solar:chat-round-dots-bold",
+      },
     ],
   },
 ];

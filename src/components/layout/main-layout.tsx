@@ -1,11 +1,9 @@
-import { Outlet } from "react-router-dom"
-
 import { Suspense } from "react"
 import Header from "./header"
 
 // ----------------------------------------------------------------------
 
-export function MainLayout() {
+export function MainLayout({ children }: { children: React.ReactNode }) {
   // const [collapsed, setCollapsed] = useState(false)
 
   return (
@@ -17,9 +15,7 @@ export function MainLayout() {
 
         <main className="flex-1 min-w-0 overflow-auto">
           <div className="container mx-auto py-6 px-4 lg:px-8">
-            <Suspense fallback={<div>Loading...</div>}>
-              <Outlet />
-            </Suspense>
+            <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
           </div>
         </main>
       </div>
