@@ -1,38 +1,38 @@
-import type { Dayjs, OpUnitType } from 'dayjs';
+import type { Dayjs, OpUnitType } from "dayjs"
 
-import duration from 'dayjs/plugin/duration';
-import relativeTime from 'dayjs/plugin/relativeTime';
+import dayjs from "dayjs"
 
-import dayjs from 'src/shared/lib/dayjs/dayjs';
-
-// ----------------------------------------------------------------------
-
-dayjs.extend(duration);
-dayjs.extend(relativeTime);
+import duration from "dayjs/plugin/duration"
+import relativeTime from "dayjs/plugin/relativeTime"
 
 // ----------------------------------------------------------------------
 
-export type DatePickerFormat = Dayjs | Date | string | number | null | undefined;
+dayjs.extend(duration)
+dayjs.extend(relativeTime)
+
+// ----------------------------------------------------------------------
+
+export type DatePickerFormat = Dayjs | Date | string | number | null | undefined
 
 /**
  * Docs: https://day.js.org/docs/en/display/format
  */
 export const formatStr = {
-  dateTime: 'YYYY MMM DD h:mm a', // 2022 Apr 17 12:00 am
-  date: 'YYYY MMM DD', // 2022 Apr 17
-  time: 'h:mm a', // 12:00 am
+  dateTime: "YYYY MMM DD h:mm a", // 2022 Apr 17 12:00 am
+  date: "YYYY MMM DD", // 2022 Apr 17
+  time: "h:mm a", // 12:00 am
   split: {
-    dateTime: 'YYYY.MM.DD h:mm a', // 2022/04/17 12:00 am
-    date: 'YYYY/MM/DD', // 2022/04/17
+    dateTime: "YYYY.MM.DD h:mm a", // 2022/04/17 12:00 am
+    date: "YYYY/MM/DD", // 2022/04/17
   },
   paramCase: {
-    dateTime: 'YYYY-MM-DD h:mm a', // 2022-04-17 12:00 am
-    date: 'YYYY-MM-DD', // 2022-04-17
+    dateTime: "YYYY-MM-DD h:mm a", // 2022-04-17 12:00 am
+    date: "YYYY-MM-DD", // 2022-04-17
   },
-};
+}
 
 export function today(format?: string) {
-  return dayjs(new Date()).startOf('day').format(format);
+  return dayjs(new Date()).startOf("day").format(format)
 }
 
 // ----------------------------------------------------------------------
@@ -41,12 +41,12 @@ export function today(format?: string) {
  */
 export function fDateTime(date: DatePickerFormat, format?: string) {
   if (!date) {
-    return null;
+    return null
   }
 
-  const isValid = dayjs(date).isValid();
+  const isValid = dayjs(date).isValid()
 
-  return isValid ? dayjs(date).format(format ?? formatStr.dateTime) : 'Invalid time value';
+  return isValid ? dayjs(date).format(format ?? formatStr.dateTime) : "Invalid time value"
 }
 
 // ----------------------------------------------------------------------
@@ -55,42 +55,42 @@ export function fDateTime(date: DatePickerFormat, format?: string) {
  */
 export function fDate(date: DatePickerFormat, format?: string) {
   if (!date) {
-    return null;
+    return null
   }
 
-  const isValid = dayjs(date).isValid();
+  const isValid = dayjs(date).isValid()
 
-  return isValid ? dayjs(date).format(format ?? formatStr.date) : 'Invalid time value';
+  return isValid ? dayjs(date).format(format ?? formatStr.date) : "Invalid time value"
 }
 export function _fDateTime(date: DatePickerFormat, format = formatStr.split.dateTime) {
   if (!date) {
-    return null;
+    return null
   }
 
-  const isValid = dayjs(date).isValid();
+  const isValid = dayjs(date).isValid()
 
-  if (!isValid) return null;
+  if (!isValid) return null
 
   return {
     tz: dayjs.utc(date).tz().format(format),
     utc: dayjs.utc(date).format(format),
     // 현지 국가의 시간대로 변환한 후 UTC로 변환
     _utc: dayjs.tz(date).utc().format(format),
-  };
+  }
 }
 export function _fTimestamp(date: DatePickerFormat, format = formatStr.split.dateTime) {
   if (!date) {
-    return null;
+    return null
   }
 
-  const isValid = dayjs(date).isValid();
+  const isValid = dayjs(date).isValid()
 
-  if (!isValid) return null;
+  if (!isValid) return null
 
   return {
     tz: dayjs(date).tz().format(format),
     utc: dayjs(date).format(format),
-  };
+  }
 }
 
 // ----------------------------------------------------------------------
@@ -99,12 +99,12 @@ export function _fTimestamp(date: DatePickerFormat, format = formatStr.split.dat
  */
 export function fTime(date: DatePickerFormat, format?: string) {
   if (!date) {
-    return null;
+    return null
   }
 
-  const isValid = dayjs(date).isValid();
+  const isValid = dayjs(date).isValid()
 
-  return isValid ? dayjs(date).format(format ?? formatStr.time) : 'Invalid time value';
+  return isValid ? dayjs(date).format(format ?? formatStr.time) : "Invalid time value"
 }
 
 // ----------------------------------------------------------------------
@@ -113,12 +113,12 @@ export function fTime(date: DatePickerFormat, format?: string) {
  */
 export function fTimestamp(date: DatePickerFormat) {
   if (!date) {
-    return null;
+    return null
   }
 
-  const isValid = dayjs(date).isValid();
+  const isValid = dayjs(date).isValid()
 
-  return isValid ? dayjs(date).valueOf() : 'Invalid time value';
+  return isValid ? dayjs(date).valueOf() : "Invalid time value"
 }
 
 // ----------------------------------------------------------------------
@@ -127,12 +127,12 @@ export function fTimestamp(date: DatePickerFormat) {
  */
 export function fToNow(date: DatePickerFormat) {
   if (!date) {
-    return null;
+    return null
   }
 
-  const isValid = dayjs(date).isValid();
+  const isValid = dayjs(date).isValid()
 
-  return isValid ? dayjs(date).toNow(true) : 'Invalid time value';
+  return isValid ? dayjs(date).toNow(true) : "Invalid time value"
 }
 
 // ----------------------------------------------------------------------
@@ -145,18 +145,18 @@ export function fIsBetween(
   endDate: DatePickerFormat
 ) {
   if (!inputDate || !startDate || !endDate) {
-    return false;
+    return false
   }
 
-  const formattedInputDate = fTimestamp(inputDate);
-  const formattedStartDate = fTimestamp(startDate);
-  const formattedEndDate = fTimestamp(endDate);
+  const formattedInputDate = fTimestamp(inputDate)
+  const formattedStartDate = fTimestamp(startDate)
+  const formattedEndDate = fTimestamp(endDate)
 
   if (formattedInputDate && formattedStartDate && formattedEndDate) {
-    return formattedInputDate >= formattedStartDate && formattedInputDate <= formattedEndDate;
+    return formattedInputDate >= formattedStartDate && formattedInputDate <= formattedEndDate
   }
 
-  return false;
+  return false
 }
 
 // ----------------------------------------------------------------------
@@ -164,7 +164,7 @@ export function fIsBetween(
 /** output: boolean
  */
 export function fIsAfter(startDate: DatePickerFormat, endDate: DatePickerFormat) {
-  return dayjs(startDate).isAfter(endDate);
+  return dayjs(startDate).isAfter(endDate)
 }
 
 // ----------------------------------------------------------------------
@@ -177,16 +177,16 @@ export function fIsSame(
   units?: OpUnitType
 ) {
   if (!startDate || !endDate) {
-    return false;
+    return false
   }
 
-  const isValid = dayjs(startDate).isValid() && dayjs(endDate).isValid();
+  const isValid = dayjs(startDate).isValid() && dayjs(endDate).isValid()
 
   if (!isValid) {
-    return 'Invalid time value';
+    return "Invalid time value"
   }
 
-  return dayjs(startDate).isSame(endDate, units ?? 'year');
+  return dayjs(startDate).isSame(endDate, units ?? "year")
 }
 
 // ----------------------------------------------------------------------
@@ -202,46 +202,46 @@ export function fDateRangeShortLabel(
   endDate: DatePickerFormat,
   initial?: boolean
 ) {
-  const isValid = dayjs(startDate).isValid() && dayjs(endDate).isValid();
+  const isValid = dayjs(startDate).isValid() && dayjs(endDate).isValid()
 
-  const isAfter = fIsAfter(startDate, endDate);
+  const isAfter = fIsAfter(startDate, endDate)
 
   if (!isValid || isAfter) {
-    return 'Invalid time value';
+    return "Invalid time value"
   }
 
-  let label = `${fDate(startDate)} - ${fDate(endDate)}`;
+  let label = `${fDate(startDate)} - ${fDate(endDate)}`
 
   if (initial) {
-    return label;
+    return label
   }
 
-  const isSameYear = fIsSame(startDate, endDate, 'year');
-  const isSameMonth = fIsSame(startDate, endDate, 'month');
-  const isSameDay = fIsSame(startDate, endDate, 'day');
+  const isSameYear = fIsSame(startDate, endDate, "year")
+  const isSameMonth = fIsSame(startDate, endDate, "month")
+  const isSameDay = fIsSame(startDate, endDate, "day")
 
   if (isSameYear && !isSameMonth) {
-    label = `${fDate(startDate, 'DD MMM')} - ${fDate(endDate)}`;
+    label = `${fDate(startDate, "DD MMM")} - ${fDate(endDate)}`
   } else if (isSameYear && isSameMonth && !isSameDay) {
-    label = `${fDate(startDate, 'DD')} - ${fDate(endDate)}`;
+    label = `${fDate(startDate, "DD")} - ${fDate(endDate)}`
   } else if (isSameYear && isSameMonth && isSameDay) {
-    label = `${fDate(endDate)}`;
+    label = `${fDate(endDate)}`
   }
 
-  return label;
+  return label
 }
 
 // ----------------------------------------------------------------------
 
 export type DurationProps = {
-  years?: number;
-  months?: number;
-  days?: number;
-  hours?: number;
-  minutes?: number;
-  seconds?: number;
-  milliseconds?: number;
-};
+  years?: number
+  months?: number
+  days?: number
+  hours?: number
+  minutes?: number
+  seconds?: number
+  milliseconds?: number
+}
 
 /** output: '2024-05-28T05:55:31+00:00'
  */
@@ -266,9 +266,9 @@ export function fAdd({
         milliseconds,
       })
     )
-    .format();
+    .format()
 
-  return result;
+  return result
 }
 
 /** output: '2024-05-28T05:55:31+00:00'
@@ -294,7 +294,7 @@ export function fSub({
         milliseconds,
       })
     )
-    .format();
+    .format()
 
-  return result;
+  return result
 }
