@@ -15,6 +15,7 @@ const MessageEmbeddedFormPage = lazy(
 const ContentEditableInputPage = lazy(
   () => import("@/pages/patterns/contenteditable-input")
 );
+const LLMChatPage = lazy(() => import("@/pages/patterns/llm-chat"));
 
 // ----------------------------------------------------------------------
 
@@ -42,6 +43,10 @@ export const patternsRoutes = [
       {
         path: "contenteditable-input",
         element: <ContentEditableInputPage />,
+      },
+      {
+        path: "llm-chat",
+        element: <LLMChatPage />,
       },
     ],
   },
