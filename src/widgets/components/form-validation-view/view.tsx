@@ -1,49 +1,46 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
-import Switch from '@mui/material/Switch';
-import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import { Typography } from '@/components/ui/typography'
+import { Switch } from '@/components/ui/switch'
+import { Label } from '@/components/ui/label'
 
-import { paths } from 'src/routes/paths';
-
-import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
-
-import { ReactHookForm } from './react-hook-form';
-import { ComponentHero } from '../../component-hero';
-import { ComponentContainer } from '../../component-block';
+import { ComponentHero } from '../component-hero'
+import { ComponentContainer } from '../component-block'
 
 // ----------------------------------------------------------------------
 
 export function FormValidationView() {
-  const [debug, setDebug] = useState(true);
+  const [debug, setDebug] = useState(true)
 
-  const handleChangeDebug = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setDebug(event.target.checked);
-  };
+  const handleChangeDebug = (checked: boolean) => {
+    setDebug(checked)
+  }
 
   return (
     <>
       <ComponentHero>
-        <CustomBreadcrumbs
-          heading="Form validation"
-          links={[{ name: 'Components', href: paths.components }, { name: 'Form validation' }]}
-          moreLink={['https://react-hook-form.com', 'https://zod.dev']}
-        />
+        <Typography variant="h3" component="h1">
+          Form validation
+        </Typography>
       </ComponentHero>
 
-      <ComponentContainer maxWidth="xl" sx={{ position: 'relative' }}>
-        <Typography variant="h4"> React hook form + Zod </Typography>
-        <FormControlLabel
-          control={<Switch name="switch-debug" checked={debug} onChange={handleChangeDebug} />}
-          label="Show Debug"
-          sx={{ alignSelf: 'flex-start' }}
-        />
+      <ComponentContainer>
+        <Typography variant="h4" className="mb-4">
+          React hook form + Zod
+        </Typography>
+        <div className="flex items-center gap-2 mb-8">
+          <Switch id="debug-switch" checked={debug} onCheckedChange={handleChangeDebug} />
+          <Label htmlFor="debug-switch">Show Debug</Label>
+        </div>
 
-        <Divider sx={{ my: 5 }} />
-
-        <ReactHookForm debug={debug} />
+        <div className="border-t pt-8">
+          <div className="p-4 border rounded-lg">
+            <p className="text-sm text-muted-foreground">
+              ReactHookForm 컴포넌트는 MUI 의존성이 있어 현재 프로젝트 스타일에 맞게 재구현이 필요합니다.
+            </p>
+          </div>
+        </div>
       </ComponentContainer>
     </>
-  );
+  )
 }

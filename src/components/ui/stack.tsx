@@ -50,7 +50,7 @@ const stackVariants = cva("flex", {
 export interface StackProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof stackVariants> {
-  component?: keyof JSX.IntrinsicElements
+  component?: keyof React.JSX.IntrinsicElements
 }
 
 const Stack = React.forwardRef<HTMLDivElement, StackProps>(

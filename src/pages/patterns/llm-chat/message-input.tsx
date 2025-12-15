@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback, KeyboardEvent, CompositionEvent } from "react";
+import { useRef, useState, useCallback, type KeyboardEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ArrowUp } from "lucide-react";

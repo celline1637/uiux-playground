@@ -12,9 +12,9 @@ interface UseMessageListProps {
 export function useMessageList({
   messages,
   isLoading,
-  chatViewHeight,
-  headerHeight,
-  inputHeight,
+  // chatViewHeight,
+  // headerHeight,
+  // inputHeight,
 }: UseMessageListProps) {
   const wrapperRef = useRef<HTMLDivElement>(null)
   const listRef = useRef<HTMLDivElement>(null)
@@ -43,17 +43,17 @@ export function useMessageList({
   }, [])
 
   // 현재 위치가 bottom 근처인지 확인
-  const isNearBottom = useCallback((threshold = 100): boolean => {
-    if (!wrapperRef.current) return false
+  // const isNearBottom = useCallback((threshold = 100): boolean => {
+  //   if (!wrapperRef.current) return false
 
-    const container = wrapperRef.current
-    const scrollTop = container.scrollTop
-    const clientHeight = container.clientHeight
-    const scrollHeight = container.scrollHeight
+  //   const container = wrapperRef.current
+  //   const scrollTop = container.scrollTop
+  //   const clientHeight = container.clientHeight
+  //   const scrollHeight = container.scrollHeight
 
-    // scrollHeight - (scrollTop + clientHeight) < threshold
-    return scrollHeight - (scrollTop + clientHeight) < threshold
-  }, [])
+  //   // scrollHeight - (scrollTop + clientHeight) < threshold
+  //   return scrollHeight - (scrollTop + clientHeight) < threshold
+  // }, [])
 
   // 뷰포트(컨테이너) 높이 추적
   useEffect(() => {
