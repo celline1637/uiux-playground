@@ -1,51 +1,10 @@
-import Box from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
-
-import { CONFIG } from 'src/config-global';
-import { varAlpha, bgGradient, textGradient } from 'src/theme/styles';
-
-import { ComponentBlock, ComponentContainer } from '../../component-block';
-
-// ----------------------------------------------------------------------
+// TODO: Gradient 컴포넌트 구현 필요
+// MUI 의존성 제거 및 현재 프로젝트 스타일에 맞게 재구현 필요
 
 export function Gradient() {
-  const theme = useTheme();
-
   return (
-    <ComponentContainer
-      sx={{
-        rowGap: 5,
-        columnGap: 3,
-        display: 'grid',
-        gridTemplateColumns: { xs: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' },
-      }}
-    >
-      <ComponentBlock title="Text">
-        <Box
-          component="h1"
-          sx={{
-            typography: 'h1',
-            ...textGradient(
-              `to right, ${theme.vars.palette.warning.light}, ${theme.vars.palette.primary.main}`
-            ),
-          }}
-        >
-          Minimals UI
-        </Box>
-      </ComponentBlock>
-
-      <ComponentBlock title="Background">
-        <Box
-          sx={{
-            ...bgGradient({
-              color: `135deg, ${varAlpha(theme.vars.palette.warning.lighterChannel, 0.8)}, ${varAlpha(theme.vars.palette.primary.mainChannel, 0.8)}`,
-              imgUrl: `${CONFIG.site.basePath}/assets/background/background-3.webp`,
-            }),
-            width: 1,
-            height: 160,
-          }}
-        />
-      </ComponentBlock>
-    </ComponentContainer>
-  );
+    <div className="p-4 border rounded-lg">
+      <p className="text-sm text-muted-foreground">Gradient 컴포넌트는 아직 구현되지 않았습니다.</p>
+    </div>
+  )
 }

@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils"
 
 export interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
   asChild?: boolean
-  component?: keyof JSX.IntrinsicElements
+  component?: keyof React.JSX.IntrinsicElements
 }
 
 const Box = React.forwardRef<HTMLDivElement, BoxProps>(

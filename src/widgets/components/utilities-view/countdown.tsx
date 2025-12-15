@@ -1,64 +1,10 @@
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-
-import { useCountdownDate, useCountdownSeconds } from 'src/hooks/use-countdown';
-
-import { ComponentBlock, ComponentContainer } from '../../component-block';
-
-// ----------------------------------------------------------------------
+// TODO: Countdown 컴포넌트 구현 필요
+// MUI 의존성 제거 및 현재 프로젝트 스타일에 맞게 재구현 필요
 
 export function Countdown() {
-  const countdownDate = useCountdownDate(new Date('08/08/2025 21:30'));
-
-  const { countdown, startCountdown, counting } = useCountdownSeconds(30);
-
   return (
-    <ComponentContainer
-      sx={{
-        rowGap: 5,
-        columnGap: 3,
-        display: 'grid',
-        gridTemplateColumns: { xs: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' },
-      }}
-    >
-      <ComponentBlock title="Date">
-        <Box
-          gap={3}
-          display="flex"
-          alignItems="center"
-          sx={{ textAlign: 'center', typography: 'body2' }}
-        >
-          <div>
-            <Box sx={{ typography: 'h5' }}>{countdownDate.days}</Box>
-            <Box sx={{ color: 'text.secondary' }}>days</Box>
-          </div>
-          <div>
-            <Box sx={{ typography: 'h5' }}>{countdownDate.hours}</Box>
-            <Box sx={{ color: 'text.secondary' }}>hours</Box>
-          </div>
-          <div>
-            <Box sx={{ typography: 'h5' }}>{countdownDate.minutes}</Box>
-            <Box sx={{ color: 'text.secondary' }}>minutes</Box>
-          </div>
-          <div>
-            <Box sx={{ typography: 'h5' }}>{countdownDate.seconds}</Box>
-            <Box sx={{ color: 'text.secondary' }}>seconds</Box>
-          </div>
-        </Box>
-      </ComponentBlock>
-
-      <ComponentBlock title="Seconds">
-        <Box
-          gap={3}
-          display="flex"
-          alignItems="center"
-          sx={{ typography: 'h5', textAlign: 'center' }}
-        >
-          <Button disabled={counting} onClick={startCountdown}>
-            {counting ? `Counting... (${countdown})` : `Start`}
-          </Button>
-        </Box>
-      </ComponentBlock>
-    </ComponentContainer>
-  );
+    <div className="p-4 border rounded-lg">
+      <p className="text-sm text-muted-foreground">Countdown 컴포넌트는 아직 구현되지 않았습니다.</p>
+    </div>
+  )
 }

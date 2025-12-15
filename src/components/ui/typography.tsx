@@ -25,7 +25,7 @@ const typographyVariants = cva("", {
 export interface TypographyProps
   extends React.HTMLAttributes<HTMLElement>,
     VariantProps<typeof typographyVariants> {
-  component?: keyof JSX.IntrinsicElements
+  component?: keyof React.JSX.IntrinsicElements
 }
 
 const Typography = React.forwardRef<HTMLElement, TypographyProps>(
