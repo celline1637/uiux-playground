@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils"
 import { memo } from "react"
+import type { Message } from "../interface/message"
+import { useMessageList } from "../model/use-message-list"
 import MessageItem from "./message-item"
 import { ScrollToBottomButton } from "./scroll-to-bottom-button"
-import type { Message } from "./types"
-import { useMessageList } from "./use-message-list"
 
 interface MessageListProps {
   messages: Message[]

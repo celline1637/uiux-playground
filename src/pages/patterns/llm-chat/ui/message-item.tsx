@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils"
 import { forwardRef, memo } from "react"
-import type { Message } from "./types"
+import type { Message } from "../interface/message"
 
 interface MessageItemProps {
   message: Message

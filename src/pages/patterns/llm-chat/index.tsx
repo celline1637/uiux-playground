@@ -3,9 +3,9 @@ import { Stack } from "@/components/ui/stack"
 import { Typography } from "@/components/ui/typography"
 import { cn } from "@/lib/utils"
 import { useEffect, useRef, useState } from "react"
-import { MessageInput } from "./message-input"
-import { MessageList } from "./message-list"
-import { useMessages } from "./use-messages"
+import { useMessages } from "./model/use-messages"
+import { MessageInput } from "./ui/message-input"
+import { MessageList } from "./ui/message-list"
 
 function LLMChatPage() {
   return (

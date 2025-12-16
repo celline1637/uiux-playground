@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
-import type { Message } from "./types"
+import type { Message } from "../interface/message"
 
 interface UseMessageListProps {
   messages: Message[]
