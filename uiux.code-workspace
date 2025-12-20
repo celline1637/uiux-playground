@@ -1,0 +1,118 @@
+{
+  "folders": [
+    {
+      "name": "App: 애플리케이션 진입점",
+      "path": "./src/app"
+    },
+    {
+      "name": "Pages: 라우팅 단위 화면",
+      "path": "./src/pages"
+    },
+    {
+      "name": "Widgets: 페이지 수준의 독립적인 UI 블록",
+      "path": "./src/widgets"
+    },
+    {
+      "name": "Features: 사용자 행동 단위의 비즈니스 기능",
+      "path": "./src/features"
+    },
+    {
+      "name": "Entities: 비즈니스 도메인 모델과 규칙",
+      "path": "./src/entities"
+    },
+    {
+      "name": "Shared",
+      "path": "./src/shared"
+    },
+    {
+      "name": "전체 레포",
+      "path": "./"
+    }
+  ],
+  "settings": {
+    /* ===============================
+       Editor / Formatter
+       =============================== */
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+
+    "editor.codeActionsOnSave": {
+      "source.fixAll.biome": "explicit"
+    },
+
+    /* ===============================
+       Import / File Move
+       =============================== */
+    "markdown.updateLinksOnFileMove.enabled": "always",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+
+    /* ===============================
+       Cursor AI (Workspace 단위 제어)
+       =============================== */
+    "cursor.ai.autoFix": false,
+    "cursor.ai.enableCodeActions": false,
+
+    /* ===============================
+       TODO Tree
+       =============================== */
+    "todo-tree.general.tags": ["FIXME", "TODO", "TEXT", "[ ]", "[x]", "NOTE", "WARN"],
+    "todo-tree.regex.regex": "((\\*|//|#|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
+    "todo-tree.highlights.customHighlight": {
+      "FIXME": {
+        "background": "#04fffb",
+        "foreground": "#000000",
+        "gutterIcon": true,
+        "icon": "flame",
+        "iconColour": "#04fffb",
+        "type": "text"
+      },
+      "NOTE": {
+        "background": "#1E90FF",
+        "foreground": "#ffffff",
+        "gutterIcon": true,
+        "icon": "note",
+        "iconColour": "#ffc404",
+        "type": "text"
+      },
+      "TODO": {
+        "background": "#b782f9",
+        "foreground": "#ffffff",
+        "gutterIcon": true,
+        "icon": "pin",
+        "iconColour": "#b782f9"
+      },
+      "WARN": {
+        "background": "#ff9f04",
+        "foreground": "#ffffff",
+        "gutterIcon": true,
+        "icon": "alert",
+        "iconColour": "#ff9f04"
+      },
+      "TEXT": {
+        "background": "#ff04ea",
+        "foreground": "#ffffff",
+        "gutterIcon": true,
+        "icon": "tag",
+        "iconColour": "#ff04ea"
+      },
+      "[ ]": {
+        "background": "#A9A9A9",
+        "foreground": "#ffffff",
+        "gutterIcon": true,
+        "icon": "pencil",
+        "iconColour": "#f87364",
+        "type": "text"
+      },
+      "[x]": {
+        "background": "#20a904",
+        "foreground": "#ffffff",
+        "gutterIcon": true,
+        "icon": "check",
+        "iconColour": "#20a904",
+        "type": "text"
+      }
+    }
+  }
+}

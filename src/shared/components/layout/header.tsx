@@ -2,6 +2,7 @@ import { Iconify } from "@/shared/components/iconify"
 import { cn } from "@/shared/utils/cn"
 import { Link } from "react-router-dom"
 import { Searchbar } from "./searchbar"
+import { paths } from "@/routes/paths"
 
 const Header = () => {
   return (
@@ -18,7 +19,7 @@ const Header = () => {
         {/* Navigation Links */}
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
           <Link
-            to="/"
+            to={paths.root}
             className={cn(
               "transition-colors hover:text-foreground/80",
               location.pathname === "/" ? "text-foreground" : "text-foreground/60"
@@ -27,7 +28,7 @@ const Header = () => {
             Home
           </Link>
           <Link
-            to="/components"
+            to={paths.componentGallery.index}
             className={cn(
               "transition-colors hover:text-foreground/80",
               location.pathname.startsWith("/components") ? "text-foreground" : "text-foreground/60"
@@ -36,7 +37,7 @@ const Header = () => {
             Components
           </Link>
           <Link
-            to="/patterns"
+            to={paths.patterns.index}
             className={cn(
               "transition-colors hover:text-foreground/80",
               location.pathname.startsWith("/patterns") ? "text-foreground" : "text-foreground/60"

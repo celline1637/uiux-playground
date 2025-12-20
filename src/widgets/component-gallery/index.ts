@@ -1,0 +1,2 @@
+export { ComponentGalleryView } from "./view"
+

@@ -1,0 +1,1 @@
+export { HomePatternGridView } from "./view"

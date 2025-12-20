@@ -1,4 +1,5 @@
-import { ComponentHero } from "@/pages/components/ui/component-hero"
+import { ComponentHero } from "@/shared/components/ui/component-hero"
+import { ComponentNav } from "@/shared/components/ui/component-nav"
 import { m } from "framer-motion"
 
 import {} from "@/shared/components/ui/box"
@@ -8,7 +9,6 @@ import { Typography } from "@/shared/components/ui/typography"
 
 import { MotionContainer } from "@/shared/components/animate/motion-container"
 import { varFade } from "@/shared/components/animate/variants/fade"
-import { ComponentNav } from "@/pages/components/ui/component-nav"
 import { useMemo } from "react"
 import { useLocation } from "react-router-dom"
 // ----------------------------------------------------------------------

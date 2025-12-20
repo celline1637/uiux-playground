@@ -56,7 +56,6 @@ export function useIntersectionObserver(
     [callback, options.root, options.rootMargin, options.threshold]
   )
 
-  // cleanup
   useEffect(() => {
     return () => {
       if (observerRef.current && targetRef.current) {
@@ -70,4 +69,3 @@ export function useIntersectionObserver(
     isIntersecting,
   }
 }
-

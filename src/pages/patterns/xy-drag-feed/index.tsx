@@ -1,5 +1,5 @@
 import { LAYOUT_CONSTANTS } from "@/shared/config/layout-constants"
-import { XYDragFeedView } from "@/widgets/xy-drag-feed/view"
+import { XYDragFeedView } from "@/widgets/vertical-scroll-feed/view"
 import { Helmet } from "react-helmet-async"
 
 // ----------------------------------------------------------------------

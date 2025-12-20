@@ -3,7 +3,7 @@ import { MainLayout } from "@/shared/components/layout"
 import { lazy } from "react"
 import { Navigate, Outlet, useRoutes } from "react-router-dom"
 import { paths } from "../../routes/paths"
-import { componentsRoutes } from "./components"
+import { componentGalleryRoutes } from "./component-gallery"
 import { patternsRoutes } from "./patterns"
 
 // ----------------------------------------------------------------------
@@ -32,7 +32,7 @@ export function Router() {
 
         ...patternsRoutes,
 
-        ...componentsRoutes,
+        ...componentGalleryRoutes,
 
         // No match
         { path: "*", element: <Navigate to="/404" replace /> },

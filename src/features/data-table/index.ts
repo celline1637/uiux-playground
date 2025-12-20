@@ -1,0 +1,6 @@
+export { DataTable } from "./components/data-table"
+export { TablePagination } from "./components/table-pagination"
+export { useTable } from "./model/use-table"
+export type { Column, DataTableProps } from "./components/data-table"
+export type { TableProps } from "./type/types"
+export type { UseTableProps } from "./model/use-table"

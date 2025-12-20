@@ -3,7 +3,7 @@
 const ROOTS = {
   DEFAULT: "/",
   NOT_FOUND: "/404",
-  COMPONENTS: "/components",
+  COMPONENT_GALLERY: "/component-gallery",
   PATTERNS: "/patterns",
 }
 
@@ -12,11 +12,12 @@ const ROOTS = {
 export const paths = {
   root: ROOTS.DEFAULT,
   notFound: ROOTS.NOT_FOUND,
-  components: {
-    index: ROOTS.COMPONENTS,
-    utilities: `${ROOTS.COMPONENTS}/utilities`,
+  componentGallery: {
+    index: ROOTS.COMPONENT_GALLERY,
+    utilities: `${ROOTS.COMPONENT_GALLERY}/utilities`,
   },
   patterns: {
+    index: ROOTS.PATTERNS,
     activeFeedAutoplay: `${ROOTS.PATTERNS}/active-feed-autoplay`,
     xyDragFeed: `${ROOTS.PATTERNS}/xy-drag-feed`,
     socketGlobalModal: `${ROOTS.PATTERNS}/socket-global-modal`,

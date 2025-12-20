@@ -1,8 +1,8 @@
 import { Container } from "@/shared/components/ui/container"
 import { Stack } from "@/shared/components/ui/stack"
 import { Typography } from "@/shared/components/ui/typography"
+import { DataTableView } from "@/widgets/data-table/view"
 import { Helmet } from "react-helmet-async"
-import { DataTableView } from "./view"
 
 // ----------------------------------------------------------------------
 

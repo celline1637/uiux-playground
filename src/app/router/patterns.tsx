@@ -2,7 +2,7 @@ import { lazy } from "react"
 
 // ----------------------------------------------------------------------
 
-const ContentEditableInputPage = lazy(() => import("@/pages/patterns/contenteditable-input"))
+const PatternsPage = lazy(() => import("@/pages/patterns"))
 const LLMChatPage = lazy(() => import("@/pages/patterns/llm-chat"))
 const DataTablePage = lazy(() => import("@/pages/patterns/data-table"))
 const XYDragFeedPage = lazy(() => import("@/pages/patterns/xy-drag-feed"))
@@ -14,13 +14,12 @@ export const patternsRoutes = [
     path: "patterns",
     children: [
       {
-        path: "llm-chat",
-        element: <LLMChatPage />,
         index: true,
+        element: <PatternsPage />,
       },
       {
-        path: "contenteditable-input",
-        element: <ContentEditableInputPage />,
+        path: "llm-chat",
+        element: <LLMChatPage />,
       },
       {
         path: "data-table",
