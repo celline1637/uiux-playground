@@ -1,5 +1,5 @@
-import { Iconify } from "@/components/iconify"
 import { paths } from "@/routes/paths"
+import { Iconify } from "@/shared/components/iconify"
 import { cn } from "@/shared/utils/cn"
 import { Link } from "react-router-dom"
 

@@ -1,6 +1,6 @@
 import { CONFIG } from "@/shared/config/config-global"
-import { UtilitiesView } from "@/widgets/components/utilities-view"
 import { Helmet } from "react-helmet-async"
+import { UtilitiesView } from "./ui/utilities-view/view"
 
 // ----------------------------------------------------------------------
 

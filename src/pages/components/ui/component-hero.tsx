@@ -1,6 +1,6 @@
-import { Box, type BoxProps } from "@/components/ui/box"
-import { Container } from "@/components/ui/container"
-import { cn } from "@/lib/utils"
+import { Box, type BoxProps } from "@/shared/components/ui/box"
+import { Container } from "@/shared/components/ui/container"
+import { cn } from "@/shared/utils/cn"
 
 import { CONFIG } from "@/shared/config/config-global"
 

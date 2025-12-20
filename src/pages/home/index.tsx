@@ -1,4 +1,4 @@
-import HomeView from "@/widgets/home/view"
+import HomeView from "./ui/view"
 import { Helmet } from "react-helmet-async"
 
 // ----------------------------------------------------------------------

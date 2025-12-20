@@ -1,5 +1,5 @@
-import { ComponentsView } from "@/widgets/components/view"
 import { Helmet } from "react-helmet-async"
+import { ComponentsView } from "./ui/view"
 
 // ----------------------------------------------------------------------
 

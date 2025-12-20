@@ -1,16 +1,16 @@
 import { m } from "framer-motion"
 
-import { Box, type BoxProps } from "@/components/ui/box"
-import { Container } from "@/components/ui/container"
-import { Separator } from "@/components/ui/separator"
-import { Stack } from "@/components/ui/stack"
-import { Typography } from "@/components/ui/typography"
-import { cn } from "@/lib/utils"
+import { Box, type BoxProps } from "@/shared/components/ui/box"
+import { Container } from "@/shared/components/ui/container"
+import { Separator } from "@/shared/components/ui/separator"
+import { Stack } from "@/shared/components/ui/stack"
+import { Typography } from "@/shared/components/ui/typography"
+import { cn } from "@/shared/utils/cn"
 
 import { orderBy } from "@/shared/utils/helper"
 
-import { MotionContainer } from "@/components/animate/motion-container"
-import { varFade } from "@/components/animate/variants/fade"
+import { MotionContainer } from "@/shared/components/animate/motion-container"
+import { varFade } from "@/shared/components/animate/variants/fade"
 
 import { ComponentCard } from "./component-card"
 import { ComponentHero } from "./component-hero"

@@ -1,9 +1,9 @@
-import { Box } from "@/components/ui/box"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Container, type ContainerProps } from "@/components/ui/container"
-import { Stack, type StackProps } from "@/components/ui/stack"
-import { cn } from "@/lib/utils"
+import { Box } from "@/shared/components/ui/box"
+import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card"
+import { Container, type ContainerProps } from "@/shared/components/ui/container"
+import { Stack, type StackProps } from "@/shared/components/ui/stack"
 import { useEventListener } from "@/shared/hooks/use-event-listener"
+import { cn } from "@/shared/utils/cn"
 import { useCallback, useState } from "react"
 
 // ----------------------------------------------------------------------

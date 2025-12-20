@@ -1,6 +1,6 @@
 import { CopyToClipboard } from "./copy-to-clipboard"
 
-import { Typography } from "@/components/ui/typography"
+import { Typography } from "@/shared/components/ui/typography"
 import { ComponentHero } from "../component-hero"
 import { ScrollToViewTemplate } from "../component-template"
 
