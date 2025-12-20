@@ -52,4 +52,3 @@ export function ComponentContainer({ children, className, ...other }: ContainerP
     </Container>
   )
 }
-

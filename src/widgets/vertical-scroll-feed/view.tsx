@@ -7,6 +7,7 @@ import { useVerticalSnapScroll } from "@/features/vertical-scroll-feed/model/use
 import { generateMockItems } from "../../entities/feed/mock/generate-mock-items"
 import { FeedItemComponent } from "../../features/vertical-scroll-feed/components/feed-item"
 import { SideControls } from "../../features/vertical-scroll-feed/components/side-controls"
+import { LAYOUT_CONSTANTS } from "@/shared/config/layout-constants"
 
 // ----------------------------------------------------------------------
 
@@ -28,7 +29,10 @@ export function XYDragFeedView() {
   })
 
   return (
-    <div className="relative h-full w-full overflow-hidden">
+    <div
+      className="relative w-full overflow-hidden"
+      style={{ height: LAYOUT_CONSTANTS.FEED_VIEW_HEIGHT }}
+    >
       {/* 메인 스크롤 컨테이너 */}
       <div
         ref={containerRef}

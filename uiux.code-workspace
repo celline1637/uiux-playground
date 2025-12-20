@@ -49,12 +49,6 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
 
     /* ===============================
-       Cursor AI (Workspace 단위 제어)
-       =============================== */
-    "cursor.ai.autoFix": false,
-    "cursor.ai.enableCodeActions": false,
-
-    /* ===============================
        TODO Tree
        =============================== */
     "todo-tree.general.tags": ["FIXME", "TODO", "TEXT", "[ ]", "[x]", "NOTE", "WARN"],

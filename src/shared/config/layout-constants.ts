@@ -18,5 +18,5 @@ export const LAYOUT_CONSTANTS = {
    * 피드 뷰 높이 계산
    * 100vh에서 헤더 높이와 메인 레이아웃 수직 패딩(상하 각 24px)을 뺀 값
    */
-  FEED_VIEW_HEIGHT: `calc(100vh - ${HEADER_HEIGHT}px - ${MAIN_LAYOUT_VERTICAL_PADDING * 2}px)`,
+  FEED_VIEW_HEIGHT: `calc(100vh - 150px)`,
 } as const

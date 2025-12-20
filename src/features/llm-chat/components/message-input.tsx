@@ -74,7 +74,7 @@ export function MessageInput({ onSend, disabled }: MessageInputProps) {
           className={cn(
             "w-full outline-none text-sm text-gray-900 dark:text-foreground",
             "min-h-[28px] max-h-[200px] overflow-y-auto",
-            "break-words whitespace-pre-wrap"
+            "wrap-break-words whitespace-pre-wrap"
           )}
           onInput={handleInput}
           onKeyDown={handleKeyDown}
