@@ -1,7 +1,7 @@
 import "@/global.css"
 
-import { MotionLazy } from "@/components/animate/motion-lazy"
 import { I18nProvider, LocalizationProvider } from "@/locales"
+import { MotionLazy } from "@/shared/components/animate/motion-lazy"
 import { Toaster } from "sonner"
 import { Router } from "./router"
 

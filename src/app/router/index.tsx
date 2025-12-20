@@ -1,5 +1,5 @@
-import { MainLayout } from "@/components/layout"
 import Page404 from "@/pages/error/404"
+import { MainLayout } from "@/shared/components/layout"
 import { lazy } from "react"
 import { Navigate, Outlet, useRoutes } from "react-router-dom"
 import { paths } from "../../routes/paths"
