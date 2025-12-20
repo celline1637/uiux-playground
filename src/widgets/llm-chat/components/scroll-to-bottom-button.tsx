@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { Button } from "@/shared/components/ui/button"
+import { cn } from "@/shared/utils/cn"
 import { ChevronDown } from "lucide-react"
 import { useCallback, useEffect, useState } from "react"
 

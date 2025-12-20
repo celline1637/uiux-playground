@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react"
-import type { Message, MessageRole } from "../interface/message"
+import type { Message, MessageRole } from "src/widgets/llm-chat/interface/message"
 
 export function useMessages() {
   const [messages, setMessages] = useState<Message[]>([])

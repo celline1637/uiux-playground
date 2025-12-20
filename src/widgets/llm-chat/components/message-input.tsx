@@ -1,60 +1,60 @@
-import { useRef, useState, useCallback, type KeyboardEvent } from "react";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { ArrowUp } from "lucide-react";
+import { Button } from "@/shared/components/ui/button"
+import { cn } from "@/shared/utils/cn"
+import { ArrowUp } from "lucide-react"
+import { type KeyboardEvent, useCallback, useRef, useState } from "react"
 
-const MAX_LENGTH = 1000;
+const MAX_LENGTH = 1000
 
 interface MessageInputProps {
-  onSend: (message: string) => void;
-  disabled?: boolean;
+  onSend: (message: string) => void
+  disabled?: boolean
 }
 
 export function MessageInput({ onSend, disabled }: MessageInputProps) {
-  const inputRef = useRef<HTMLDivElement>(null);
-  const [charCount, setCharCount] = useState(0);
-  const [isComposing, setIsComposing] = useState(false);
+  const inputRef = useRef<HTMLDivElement>(null)
+  const [charCount, setCharCount] = useState(0)
+  const [isComposing, setIsComposing] = useState(false)
 
   const getTextContent = useCallback(() => {
-    return inputRef.current?.textContent || "";
-  }, []);
+    return inputRef.current?.textContent || ""
+  }, [])
 
   const handleInput = useCallback(() => {
-    const text = getTextContent();
-    setCharCount(text.length);
-  }, [getTextContent]);
+    const text = getTextContent()
+    setCharCount(text.length)
+  }, [getTextContent])
 
   const handleSend = useCallback(() => {
-    const text = getTextContent().trim();
+    const text = getTextContent().trim()
     if (text && text.length > 0 && !disabled) {
-      onSend(text);
+      onSend(text)
       if (inputRef.current) {
-        inputRef.current.textContent = "";
-        setCharCount(0);
+        inputRef.current.textContent = ""
+        setCharCount(0)
       }
     }
-  }, [getTextContent, onSend, disabled]);
+  }, [getTextContent, onSend, disabled])
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent<HTMLDivElement>) => {
       if (e.key === "Enter" && !e.shiftKey && !isComposing) {
-        e.preventDefault();
-        handleSend();
+        e.preventDefault()
+        handleSend()
       }
     },
     [handleSend, isComposing]
-  );
+  )
 
   const handleCompositionStart = useCallback(() => {
-    setIsComposing(true);
-  }, []);
+    setIsComposing(true)
+  }, [])
 
   const handleCompositionEnd = useCallback(() => {
-    setIsComposing(false);
-  }, []);
+    setIsComposing(false)
+  }, [])
 
-  const isEmpty = charCount === 0;
-  const canSend = !isEmpty && charCount <= MAX_LENGTH && !disabled;
+  const isEmpty = charCount === 0
+  const canSend = !isEmpty && charCount <= MAX_LENGTH && !disabled
 
   return (
     <div className="flex flex-col gap-2 border border-gray-300 dark:border-border rounded-3xl p-4 bg-primary-foreground dark:bg-background text-foreground shadow-sm">
@@ -107,6 +107,5 @@ export function MessageInput({ onSend, disabled }: MessageInputProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }
-

@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/shared/utils/cn"
 import { memo } from "react"
 import type { Message } from "../interface/message"
 import { useMessageList } from "../model/use-message-list"
