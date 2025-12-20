@@ -23,5 +23,6 @@ export const paths = {
     messageEmbeddedForm: `${ROOTS.PATTERNS}/message-embedded-form`,
     contenteditableInput: `${ROOTS.PATTERNS}/contenteditable-input`,
     llmChat: `${ROOTS.PATTERNS}/llm-chat`,
+    dataTable: `${ROOTS.PATTERNS}/data-table`,
   },
 }
