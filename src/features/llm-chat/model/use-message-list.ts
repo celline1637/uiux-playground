@@ -112,25 +112,21 @@ export function useMessageList({ messages, isLoading }: UseMessageListProps) {
 
     // 레이아웃과 여백 계산이 완료된 후 스크롤
     requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          if (!lastUserMessageRef.current || !wrapperRef.current) return
+      if (!lastUserMessageRef.current || !wrapperRef.current) return
 
-          // 유저 메시지가 한 줄 이상인지 확인
-          const messageHeight = lastUserMessageRef.current.offsetHeight
+      // 유저 메시지가 한 줄 이상인지 확인
+      const messageHeight = lastUserMessageRef.current.offsetHeight
 
-          if (messageHeight > SINGLE_LINE_THRESHOLD) {
-            // 한 줄 이상: bottom-anchor 기반 스크롤 (하단이 보이도록)
-            scrollToBottom("smooth")
-          } else {
-            // 한 줄 이하: 유저 메시지 상단이 보이도록 스크롤
-            lastUserMessageRef.current.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            })
-          }
+      if (messageHeight > SINGLE_LINE_THRESHOLD) {
+        // 한 줄 이상: bottom-anchor 기반 스크롤 (하단이 보이도록)
+        scrollToBottom("smooth")
+      } else {
+        // 한 줄 이하: 유저 메시지 상단이 보이도록 스크롤
+        lastUserMessageRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
         })
-      })
+      }
     })
   }, [userMessageHeight, currentUserMessageId, messages, scrollToBottom])
 

@@ -13,6 +13,7 @@ export const generateMockItems = (count: number): FeedItem[] => {
   return Array.from({ length: count }, (_, i) => ({
     id: `item-${i + 1}`,
     title: `피드 아이템 ${i + 1}`,
+    videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
     description: `이것은 ${i + 1}번째 피드 아이템입니다. 수직 스크롤 피드를 구현했습니다.`,
     color: colors[i % colors.length],
     likes: Math.floor(Math.random() * 10000) + 100,
