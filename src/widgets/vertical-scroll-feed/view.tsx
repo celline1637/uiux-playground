@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 
 import { useBoolean } from "@/shared/hooks/use-boolean"
 import { useIntersectionObserver } from "@/shared/hooks/use-intersection-observer"
@@ -13,7 +13,10 @@ import { LAYOUT_CONSTANTS } from "@/shared/config/layout-constants"
 
 export function XYDragFeedView() {
   const [items, setItems] = useState(() => generateMockItems(10))
-  const mute = useBoolean(true)
+  const mute = useBoolean(false)
+  const [visibleItems, setVisibleItems] = useState<Set<string>>(new Set())
+  const itemRefs = useRef<Map<string, HTMLElement>>(new Map())
+  const observerRef = useRef<IntersectionObserver | null>(null)
 
   const { status, actions, containerRef } = useVerticalSnapScroll(items.length, {
     smooth: true,
@@ -28,6 +31,59 @@ export function XYDragFeedView() {
     threshold: 0.5,
   })
 
+  // 각 피드 아이템의 가시성 추적을 위한 Intersection Observer 설정
+  useEffect(() => {
+    if (!containerRef.current) return
+
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const itemId = entry.target.getAttribute("data-item-id")
+          if (!itemId) continue
+
+          setVisibleItems((prev) => {
+            const next = new Set(prev)
+            if (entry.isIntersecting) {
+              next.add(itemId)
+            } else {
+              next.delete(itemId)
+            }
+            return next
+          })
+        }
+      },
+      {
+        root: containerRef.current,
+        rootMargin: "0px",
+        threshold: 0.5, // 뷰포트의 50% 이상 보일 때 visible로 간주
+      }
+    )
+
+    // 모든 아이템 관찰 시작
+    for (const element of itemRefs.current.values()) {
+      observerRef.current?.observe(element)
+    }
+
+    return () => {
+      observerRef.current?.disconnect()
+    }
+  }, [containerRef])
+
+  // 아이템 ref 등록 함수
+  const registerItemRef = useCallback((itemId: string, element: HTMLElement | null) => {
+    if (element) {
+      element.setAttribute("data-item-id", itemId)
+      itemRefs.current.set(itemId, element)
+      observerRef.current?.observe(element)
+    } else {
+      const existingElement = itemRefs.current.get(itemId)
+      if (existingElement) {
+        observerRef.current?.unobserve(existingElement)
+        itemRefs.current.delete(itemId)
+      }
+    }
+  }, [])
+
   return (
     <div
       className="relative w-full overflow-hidden"
@@ -40,6 +96,7 @@ export function XYDragFeedView() {
       >
         {items.map((item, index) => {
           const isLastOfSecond = items.length > 1 && items.length - 2 === index
+          const isVisible = visibleItems.has(item.id)
 
           return (
             <FeedItemComponent
@@ -47,7 +104,9 @@ export function XYDragFeedView() {
               ref={isLastOfSecond ? setObservationTarget : undefined}
               item={item}
               mute={mute.value}
+              isVisible={isVisible}
               observationRef={isLastOfSecond ? setObservationTarget : undefined}
+              onRef={(element) => registerItemRef(item.id, element)}
             />
           )
         })}
